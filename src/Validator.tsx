@@ -50,14 +50,14 @@ function validateName(name: string, errors: IForm) {
       errors.name = "Ingrese un nombre";
       result = false;
     } else {
-      var regex = /^[a-z][a-z.\s-]{0,200}$/;
+      var regex = /^[a-zA-Z][a-zA-Z.\s-]{0,100}$/;
       result = regex.test(name);
   
       if (!result) {
         errors.name = "Ingrese un nombre válido";
         result = false;
-      } else if (name.length > 200) {
-        errors.name = "Máximo 200 caracteres.";
+      } else if (name.length > 100) {
+        errors.name = "Máximo 100 caracteres.";
         result = false;
       }
     }
@@ -72,14 +72,14 @@ function validateLastName1(lastname1: string, errors: IForm) {
       errors.lastname1 = "Ingrese un apellido";
       result = false;
     } else {
-      var regex = /^[a-z][a-z.\s-]{0,200}$/;
+      var regex = /^[a-zA-Z][a-zA-Z.\s-]{0,100}$/;
       result = regex.test(lastname1);
   
       if (!result) {
         errors.lastname1 = "Ingrese un apellido válido";
         result = false;
-      } else if (lastname1.length > 200) {
-        errors.lastname1 = "Máximo 200 caracteres.";
+      } else if (lastname1.length > 100) {
+        errors.lastname1 = "Máximo 100 caracteres.";
         result = false;
       }
     }
@@ -94,14 +94,14 @@ function validateLastName2(lastname2: string, errors: IForm) {
       errors.lastname2 = "Ingrese un apellido";
       result = false;
     } else {
-      var regex = /^[a-z][a-z.\s-]{0,200}$/;
+      var regex = /^[a-zA-Z][a-zA-Z.\s-]{0,100}$/;
       result = regex.test(lastname2);
   
       if (!result) {
         errors.lastname2 = "Ingrese un apellido válido";
         result = false;
-      } else if (lastname2.length > 200) {
-        errors.lastname2 = "Máximo 200 caracteres.";
+      } else if (lastname2.length > 100) {
+        errors.lastname2 = "Máximo 100 caracteres.";
         result = false;
       }
     }
