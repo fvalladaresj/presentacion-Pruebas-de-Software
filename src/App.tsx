@@ -82,10 +82,10 @@ const App = () => {
 
   const [contactList, setContactList] = useState<IContact[]>([
     {
-      name: "nombre",
-      lastname1: "apellido",
-      lastname2: "apellido",
-      email: "email@gmail.com",
+      name: "Juan",
+      lastname1: "Perez",
+      lastname2: "Lopez",
+      email: "juan@gmail.com",
       phone: "12345678",
     },
   ]);
@@ -165,7 +165,6 @@ const App = () => {
     index: number,
     isEdit: boolean
   ) => {
-    console.log("open", index, isEdit);
     setInitState(contact);
     setIndex(index);
     setEditMode(isEdit);
@@ -191,7 +190,6 @@ const App = () => {
     };
 
     const submit = () => {
-      console.log("submitted");
       if (editMode) {
         let newArr = [...contactList];
         newArr[index] = state;
@@ -208,15 +206,16 @@ const App = () => {
       callback: submit,
       validator,
     });
-
+    
     return (
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog  open={open} onClose={handleClose}>
         <form onSubmit={handleSubmit}>
-          <DialogTitle>
+          <DialogTitle className="title">
             {editMode ? "Editar contacto" : "Añadir contacto"}
           </DialogTitle>
           <DialogContent>
             <TextField
+              className={"nameInput"}
               margin="dense"
               name="name"
               label="Nombre"
@@ -232,6 +231,7 @@ const App = () => {
             />
 
             <TextField
+              className={"lastname1Input"}
               margin="dense"
               name="lastname1"
               label="Primer apellido"
@@ -246,6 +246,7 @@ const App = () => {
               required
             />
             <TextField
+              className={"lastname2Input"}
               margin="dense"
               name="lastname2"
               label="Segundo apellido"
@@ -260,6 +261,7 @@ const App = () => {
               required
             />
             <TextField
+              className={"emailInput"}
               margin="dense"
               name="email"
               label="Correo"
@@ -274,6 +276,7 @@ const App = () => {
               required
             />
             <TextField
+              className={"phoneInput"}
               margin="dense"
               name="phone"
               label="Teléfono"
@@ -324,6 +327,7 @@ const App = () => {
           <Grid item xs={4}>
             <Item>
               <Button
+                id="addContactBtn"
                 variant="outlined"
                 startIcon={<Add />}
                 onClick={() => handleClickOpen(defaultState, 0, false)}
@@ -361,32 +365,29 @@ const App = () => {
                   key={id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <StyledTableCell
-                    style={{ width: 160 }}
-                    component="th"
-                    scope="row"
-                    align="center"
-                  >
+                  <StyledTableCell id={"rowName"} style={{ width: 160 }} component="th" scope="row" align="center">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="center" style={{ width: 260 }}>
+                  <StyledTableCell id={"rowLastname1"} align="center" style={{ width: 260 }}>
                     {row.lastname1}
                   </StyledTableCell>
-                  <StyledTableCell align="center" style={{ width: 260 }}>
+                  <StyledTableCell id={"rowLastname2"} align="center" style={{ width: 260 }}>
                     {row.lastname2}
                   </StyledTableCell>
-                  <StyledTableCell align="center">{row.email}</StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell id={"rowEmail"} align="center">{row.email}</StyledTableCell>
+                  <StyledTableCell id={"rowPhone"} align="center">
                     +569 {row.phone}
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <IconButton
+                      id="editContactBtn"
                       aria-label="edit"
                       onClick={() => handleClickOpen(row, id, true)}
                     >
                       <Edit />
                     </IconButton>
                     <IconButton
+                      id="deleteContactBtn"
                       aria-label="delete"
                       onClick={() => handleDelete(id)}
                     >

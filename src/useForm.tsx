@@ -20,8 +20,10 @@ const useForm = ({ initState, callback, validator }: any) => {
   const [isSubmited, setIsSubmited] = useState(false);
 
   useEffect(() => {
+    console.log(Object.values(errors))
+    let aux = Object.values(errors).filter(error => typeof error !== "undefined");
     const isValidErrors = () =>
-      Object.values(errors).filter(error => error !== "")
+    aux.filter(error => error !== "")
         .length > 0;
     if (isSubmited && !isValidErrors()) callback();
   }, [errors]);
@@ -39,12 +41,11 @@ const useForm = ({ initState, callback, validator }: any) => {
     const failFields = validator(state, fieldName);
     setErrors(() => ({
       ...errors,
-      [fieldName]: Object.values(failFields)[0]
+      [fieldName]: Object.values(failFields).filter(error => error !== "")[0]
     }));
   };
 
   const handleSubmit = (e: any) => {
-    console.log("Submitted from form")
     e.preventDefault();
     const { name: fieldName } = e.target;
     const failFields = validator(state, fieldName);

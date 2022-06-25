@@ -7,9 +7,11 @@
     "@mui/lab": "latest",
     "@mui/material": "latest",
     "@mui/styled-engine-sc": "latest",
-    "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.33.0",
@@ -38,11 +40,14 @@
   },
   "devDependencies": {
     "@craco/craco": "latest",
+    "@testing-library/jest-dom": "^5.16.4",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/styled-components": "latest",
     "craco-alias": "^3.0.1",
+    "enzyme": "^3.11.0",
+    "react-test-renderer": "^18.2.0",
     "typescript": "latest"
   }
 }
