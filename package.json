@@ -12,6 +12,8 @@
     "@testing-library/user-event": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.33.0",
+    "react-hook-form-mui": "^3.8.0",
     "react-scripts": "latest",
     "styled-components": "latest"
   },
